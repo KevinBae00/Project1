@@ -51,5 +51,3 @@ gen
 *.iml
 out
 gen
-.gradle
-build
