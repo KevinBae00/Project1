@@ -20,6 +20,7 @@ public class WordCRUD implements ICRUD{
     @Override
     public Object add() {
         try {
+            bw.newLine();
             bw.write("=> 난이도(1,2,3) & 새 단어 입력 : ");
             bw.flush();
             int level = br.read()-48;
@@ -28,6 +29,7 @@ public class WordCRUD implements ICRUD{
             bw.write("뜻 입력 : ");
             bw.flush();
             String meaning = br.readLine();
+            bw.newLine();
             return new Word(0, level, word, meaning);//Object로 리턴
         }catch (IOException e) {
             throw new RuntimeException(e);
@@ -40,7 +42,7 @@ public class WordCRUD implements ICRUD{
         Word one = (Word) add();//(Word type)add함수 실행
         list.add(one);
         try {
-            bw.write("새 단어가 단어장에 추가되었습니다. ");
+            bw.write("새 단어가 단어장에 추가되었습니다. \n");
             bw.newLine();
             bw.flush();
         }catch (IOException e){
@@ -64,8 +66,8 @@ public class WordCRUD implements ICRUD{
     }
     public void listAll(){
         try {
-            bw.write("-----------------------------------");
             bw.newLine();
+            bw.write("-----------------------------------\n");
             bw.flush();
             for(int i = 0; i < list.size(); i++){
                 bw.write((i+1) + " ");
@@ -74,7 +76,7 @@ public class WordCRUD implements ICRUD{
                 bw.newLine();
                 bw.flush();
             }
-            bw.write("-----------------------------------");
+            bw.write("-----------------------------------\n");
             bw.newLine();
             bw.flush();
         }catch (IOException e){

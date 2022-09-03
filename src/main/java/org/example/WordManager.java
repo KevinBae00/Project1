@@ -22,6 +22,7 @@ public class WordManager {
         try {
             bw.write("""
                     *** 영단어 마스터 ***
+                    
                     ********************
                     1. 모든 단어 보기
                     2. 수준별 단어 보기
