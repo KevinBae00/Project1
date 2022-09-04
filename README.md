@@ -4,3 +4,5 @@
 
 <img src='https://github.com/KevinBae00/Project1/blob/master/screenshot/screenshot1.jpg?raw=true'
      width='300'>
+<img src='https://github.com/KevinBae00/Project1/blob/master/screenshot/screenshot2.jpg?raw=true'
+     width='300'>
