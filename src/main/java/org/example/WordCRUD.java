@@ -39,7 +39,7 @@ public class WordCRUD implements ICRUD{
 
     }
 
-    public void addWord(){
+    public void addItem(){
         Word one = (Word) add();//(Word type)add함수 실행
         list.add(one);
         try {
@@ -131,4 +131,30 @@ public class WordCRUD implements ICRUD{
         bw.write("단어가 수정되었습니다.\n");
         bw.flush();
     }
+
+    public void deleteItem() throws IOException {
+        bw.write("=> 삭제할 단어 검색 : ");
+        bw.flush();
+        StringTokenizer str = new StringTokenizer(br.readLine(), " ");
+        String keyword = str.nextToken();
+        ArrayList<Integer> idlist = this.listAll(keyword);
+        bw.write("=> 삭제할 번호 선택 : ");
+        bw.flush();
+        int id = Integer.parseInt(br.readLine());
+        bw.newLine();
+
+
+        bw.write("=> 정말로 삭제하시겠습니까?(Y/n) ");
+        bw.flush();
+        str = new StringTokenizer(br.readLine(), " ");
+        String ans = str.nextToken();
+        if(ans.equalsIgnoreCase("y")){
+            list.remove((int)idlist.get(id-1));
+            bw.write("단어가 삭제되었습니다.\n");
+            bw.flush();
+        } else{
+            bw.write("취소되었습니다. \n");
+            bw.flush();
+        }
+        }
 }

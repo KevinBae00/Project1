@@ -54,7 +54,7 @@ public class WordManager {
                 }
             }
             if(menu == 4){//4를 입력 받으면 단어 추가
-                wordCRUD.addWord();
+                wordCRUD.addItem();
             }
             else if(menu == 1){//1을 입력 받으면 단어리스트를 보여줌
                 wordCRUD.listAll();
@@ -63,7 +63,7 @@ public class WordManager {
                 wordCRUD.updateItem();
             }
             else if(menu == 6){//1 delete
-
+                wordCRUD.deleteItem();
             }
         }
     }
