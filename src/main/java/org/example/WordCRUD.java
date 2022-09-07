@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class WordCRUD implements ICRUD{
     ArrayList<Word> list;
@@ -83,5 +84,51 @@ public class WordCRUD implements ICRUD{
             throw new RuntimeException("listAll() 파일에서 오류 발생");
         }
 
+    }
+    public ArrayList<Integer> listAll(String keyword){
+        try {
+            ArrayList<Integer> idlist = new ArrayList<>();
+            int j = 0;
+            bw.newLine();
+            bw.write("-----------------------------------\n");
+            bw.flush();
+            for(int i = 0; i < list.size(); i++){
+                String word =list.get(i).getWord();
+                if(word.contains(keyword)) {
+                    bw.write((j + 1) + " ");
+                    bw.flush();
+                    bw.write(list.get(i).toString());
+                    bw.newLine();
+                    bw.flush();
+                    idlist.add(i);
+                    j++;
+                }
+            }
+            bw.write("-----------------------------------\n");
+            bw.newLine();
+            bw.flush();
+            return idlist;
+        }catch (IOException e){
+            throw new RuntimeException("listAll() 파일에서 오류 발생");
+        }
+
+    }
+
+    public void updateItem() throws IOException {
+        bw.write("=> 수정할 단어 검색 : ");
+        bw.flush();
+        StringTokenizer str = new StringTokenizer(br.readLine(), " ");
+        String keyword = str.nextToken();
+        ArrayList<Integer> idlist = this.listAll(keyword);
+        bw.write("=> 수정할 번호 선택 : ");
+        bw.flush();
+        int id = Integer.parseInt(br.readLine());
+        bw.write("=> 뜻 입력 : ");
+        bw.flush();
+        String meaning = br.readLine();
+        Word word = list.get(idlist.get(id-1));
+        word.setMeaning(meaning);
+        bw.write("단어가 수정되었습니다.\n");
+        bw.flush();
     }
 }
