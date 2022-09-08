@@ -1,0 +1,4 @@
+1| apple|사과
+1| ship|배
+2| important|중요한
+1| banana|바나나

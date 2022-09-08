@@ -43,6 +43,8 @@ public class WordManager {
     }
 
     public void start() throws IOException {
+
+        wordCRUD.loadFile();
         while (true) {
             int menu = selectMenu();
             if(menu == 0) {
@@ -59,11 +61,20 @@ public class WordManager {
             else if(menu == 1){//1을 입력 받으면 단어리스트를 보여줌
                 wordCRUD.listAll();
             }
+            else if(menu == 2){//1을 입력 받으면 단어리스트를 보여줌
+                wordCRUD.searchLevel();
+            }
+            else if(menu == 3){//1을 입력 받으면 단어리스트를 보여줌
+                wordCRUD.searchWord();
+            }
             else if(menu == 5){//1 update
                 wordCRUD.updateItem();
             }
             else if(menu == 6){//1 delete
                 wordCRUD.deleteItem();
+            }
+            else if(menu == 7){//save data
+                wordCRUD.saveFile();
             }
         }
     }
