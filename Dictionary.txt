@@ -2,3 +2,14 @@
 1| ship|배
 2| important|중요한
 1| banana|바나나
+3| ambiguous|모호한
+2| adorable|귀여운
+3| fabulous|멋진
+2| valuable|소중한
+3| vivacious|명량한
+2| conservative|보수적인
+1| chilly|차가운
+1| burning|뜨거운
+2| appetizing|맛있는
+2| racy|흥분되는
+2| tenacity|끈기
